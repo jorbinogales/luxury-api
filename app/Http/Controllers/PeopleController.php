@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Visit;
 use App\Models\People;
 use Illuminate\Http\Request;
-use App\Http\Requests\People\PeopleRquest;
+use App\Http\Requests\People\PeopleRequest;
 use App\Http\Resources\People\PeopleResource;
+use Exception;
 
 class PeopleController extends Controller
 {
@@ -16,21 +19,27 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        $peoples = People::orderBy('id', 'desc')->paginate(10);
+        $persons = People::orderBy('id', 'desc')->paginate(10);
 
         return view('pages.table_list')
             ->with([
-                'peoples' => $peoples,
+                'peoples' => $persons,
              ]);
     }
 
+    /**
+     * @return \Illuminate\Http\Response
+     */
     public function count()
     {
         $peoples = People::count();
 
+        $visits = Visit::count();
+
         return view('dashboard')
                 ->with([
                     'peoples' => $peoples,
+                    'visits' => $visits,
                 ]);
 
     }

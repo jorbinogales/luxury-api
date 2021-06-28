@@ -22,14 +22,14 @@ Route::middleware('api')->group(function(){
 
     Route::prefix('people')->group(function(){
 
-        Route::get('', [PeopleController::class, 'index']);
         Route::post('', [PeopleController::class, 'store']);
 
     });
 
     Route::prefix('visit')->group(function(){
-        Route::post('', [VisitController::class, 'index']);
+
         Route::post('', [VisitController::class, 'store']);
+        
     });
 
 });

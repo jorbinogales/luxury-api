@@ -25,7 +25,7 @@
                 <i class="material-icons">people</i>
               </div>
               <p class="card-category">Visitas</p>
-              <h3 class="card-title">0</h3>
+              <h3 class="card-title">{{ $visits }}</h3>
             </div>
           </a>
         </div>

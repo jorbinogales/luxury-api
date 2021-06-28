@@ -43,6 +43,9 @@
                 </tbody>
               </table>
             </div>
+            <div>
+              {{ $peoples->links() }}
+            </div>
           </div>
         </div>
       </div>
