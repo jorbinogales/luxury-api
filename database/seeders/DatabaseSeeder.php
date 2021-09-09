@@ -14,9 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@luxurysalones.com',
-        ]);
+    
     }
 }

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\People\PeopleRequest;
 use App\Http\Resources\People\PeopleResource;
 use Exception;
+use App\Mail\PeopleSendMail;
+use Mail;
 
 class PeopleController extends Controller
 {
@@ -55,6 +57,13 @@ class PeopleController extends Controller
         try {
 
             People::create($request->validated());
+
+            $files = [
+                public_path('Luxury.pdf')
+            ];
+
+            Mail::to($request->email)->send(new PeopleSendMail($files));
+            
 
         } catch (Exception $e) {
 

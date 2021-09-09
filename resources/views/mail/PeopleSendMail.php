@@ -1,0 +1,1 @@
+<h1>Gracias por Registrarte en Luxury Salones</h1>
