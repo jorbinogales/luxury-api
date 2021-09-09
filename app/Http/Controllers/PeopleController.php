@@ -63,8 +63,11 @@ class PeopleController extends Controller
             ];
 
             Mail::to($request->email)->send(new PeopleSendMail($files));
-            
 
+            return [
+                'statusCode' => 200,
+            ];
+            
         } catch (Exception $e) {
 
             return $e;
@@ -100,7 +103,6 @@ class PeopleController extends Controller
         } catch (Exception $e) {
 
             return $e;
-
         }
     }
 
