@@ -55,15 +55,8 @@ class PeopleController extends Controller
     public function store(PeopleRequest $request)
     {
         try {
-
             People::create($request->validated());
-
-            $files = [
-                public_path('Luxury.pdf')
-            ];
-
-            Mail::to($request->email)->send(new PeopleSendMail($files));
-
+            Mail::to($request->email)->send(new PeopleSendMail());
             return [
                 'statusCode' => 200,
             ];

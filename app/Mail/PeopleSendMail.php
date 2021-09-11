@@ -11,16 +11,13 @@ class PeopleSendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $file;
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($file)
+    public function __construct()
     {
-        $this->file = $file;
     }
 
     /**
