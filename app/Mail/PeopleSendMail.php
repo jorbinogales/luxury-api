@@ -28,9 +28,6 @@ class PeopleSendMail extends Mailable
     public function build()
     {
         return $this->view('mail.PeopleSendMail')
-                    ->subject('Registro Exitoso en Luxury')
-                    ->attachFromStorage('public/LUXURY_BROCHURE_MAYO_3105.pdf', 'LUXURY_BROCHURE_MAYO_3105.pdf', [
-                        'mime' => 'application/pdf',
-                    ]);
+                    ->subject('Registro Exitoso en Luxury');
     }
 }

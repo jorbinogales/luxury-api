@@ -19,13 +19,11 @@ use App\Http\Controllers\VisitController;
 Route::middleware('api')->group(function(){
 
     /* PEOPLE */
-
     Route::prefix('people')->group(function(){
 
         Route::post('', [PeopleController::class, 'store']);
 
     });
-
     Route::prefix('visit')->group(function(){
 
         Route::post('', [VisitController::class, 'store']);
@@ -35,5 +33,15 @@ Route::middleware('api')->group(function(){
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+     /* PEOPLE */
+    Route::prefix('people')->group(function(){
+        Route::post('', [PeopleController::class, 'store']);
+    });
+    Route::prefix('visit')->group(function(){
+        Route::post('', [VisitController::class, 'store']);
+    });
+
+        return $request->user();
 });

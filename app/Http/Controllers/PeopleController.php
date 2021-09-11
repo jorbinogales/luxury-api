@@ -11,6 +11,8 @@ use App\Http\Resources\People\PeopleResource;
 use Exception;
 use App\Mail\PeopleSendMail;
 use Mail;
+use Illuminate\Support\Facades\Response;
+
 
 class PeopleController extends Controller
 {
@@ -117,5 +119,13 @@ class PeopleController extends Controller
             return $e;
 
         }
+    }
+
+    public function download()
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $file = public_path(). "/LUXURY_BROCHURE_MAYO_3105.pdf";
+        $headers = array('Content-Type: application/pdf',);
+        return Response::download($file, 'LUXURY_BROCHURE_MAYO_3105.pdf', $headers);
     }
 }
